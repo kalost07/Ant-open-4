@@ -67,7 +67,9 @@ void Presenter::draw()
     case 1:
         world.m_game.draw();
         break;
-    default:
+    case 2:
+        world.m_game.draw();
+        world.menu.draw_win_scr();
         break;
     }
     SDL_RenderPresent(m_main_renderer);

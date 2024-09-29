@@ -21,16 +21,19 @@ public:
 	SDL_Rect m_playBotH_rect;
 	SDL_Texture* m_playBotH_texture;
 
+	SDL_Rect m_win_rect;
+	SDL_Texture* m_win_texture;
+
 	void init_play();
 	void init_playBotE();
 	void init_playBotH();
 	void init_quit();
 	void init_title();
 	void init_background_start();
+	void init_win(bool);
 
 	void init_all_start();
-
-
+	void init_win_scr(bool);
 
 	void draw_quit();
 	void draw_play();
@@ -38,7 +41,8 @@ public:
 	void draw_playBotH();
 	void draw_title();
 	void draw_background_start();
+	void draw_win();
 
 	void draw_all_start();
-
+	void draw_win_scr();
 };
