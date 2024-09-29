@@ -39,7 +39,7 @@ void Pul::draw()
 	
 
 void Pul::exit() {
-	SDL_DestroyTexture(txt);
+	SDL_DestroyTexture(m_txt);
 	active = false;
 }
 
