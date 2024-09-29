@@ -7,6 +7,8 @@ public:
 	Pul();
 	~Pul();
 
+	bool active = false;
+
 	int2 m_coords;
 	int m_player;
 	Drawable drawable;

@@ -24,8 +24,6 @@ public:
     bool m_mouseIsHolded;
     bool m_mouseIsRightPressed;
 
-    bool keys[322];
-
     int2 m_inputDirection;
 
     int2 m_mouseCoor;

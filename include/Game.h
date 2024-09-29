@@ -14,4 +14,6 @@ public:
 	void exit();
 
 	Board m_board;
+
+	bool turn;
 };
