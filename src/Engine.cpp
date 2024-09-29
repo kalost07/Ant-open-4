@@ -77,3 +77,4 @@ bool checkInOffBounds(SDL_Rect rect, int screenWidth, int screenHeight)
     return false;
 }
 
+bool temp;
