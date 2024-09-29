@@ -22,9 +22,6 @@
     <ClCompile Include="src\InputManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cat.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Engine.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -32,15 +29,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Game.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameBackground.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Asteroid.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Pepper.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\StartMenu.cpp">
@@ -57,9 +45,6 @@
     <ClInclude Include="include\InputManager.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\Cat.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="include\Presenter.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -67,15 +52,6 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\Game.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameBackground.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Pepper.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Asteroid.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\StartMenu.h">

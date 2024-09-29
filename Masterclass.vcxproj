@@ -151,29 +151,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Asteroid.cpp" />
-    <ClCompile Include="src\Cat.cpp" />
     <ClCompile Include="src\Engine.cpp" />
-    <ClCompile Include="src\FuelBar.cpp" />
     <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\GameBackground.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Pepper.cpp" />
     <ClCompile Include="src\Presenter.cpp" />
     <ClCompile Include="src\StartMenu.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Asteroid.h" />
-    <ClInclude Include="include\Cat.h" />
     <ClInclude Include="include\defines.h" />
     <ClInclude Include="include\Engine.h" />
-    <ClInclude Include="include\FuelBar.h" />
     <ClInclude Include="include\Game.h" />
-    <ClInclude Include="include\GameBackground.h" />
     <ClInclude Include="include\InputManager.h" />
-    <ClInclude Include="include\Pepper.h" />
     <ClInclude Include="include\Presenter.h" />
     <ClInclude Include="include\StartMenu.h" />
     <ClInclude Include="include\World.h" />
