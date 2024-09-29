@@ -19,6 +19,7 @@ void Board::init()
 	m_rect = { 1920 / 2 - 700 / 2,1080 - 600,700,600 };
 	txt = loadTexture("grid.bmp");
 	srand(time(NULL));
+	pulCount = 0;
 }
 
 void Board::update()
@@ -42,10 +43,15 @@ void Board::update()
 	if (pos.x != -1) {
 		bool win = checkWin(pos,world.m_game.turn);
 		if (win) {
-			world.game_state = 2;
+			// world.game_state = 2;
 			endState = world.m_game.turn;
 		}
 		world.m_game.turn = !world.m_game.turn;
+		pulCount++;
+		if (world.game_state != 2 && pulCount == 42) {
+			world.game_state = 2;
+			endState = 2;
+		}
 	}
 	//update pulove
 }

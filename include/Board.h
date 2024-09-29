@@ -26,4 +26,5 @@ public:
 	int botPlaceRandom();
 
 	int endState;
+	int pulCount;
 };
