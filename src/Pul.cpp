@@ -18,7 +18,7 @@ void Pul::init(int2 pos1,int player,int txt_num)
 			m_txt = loadTexture("pul0.bmp");
 			break;
 		case 1:
-			m_txt = loadTexture("pul1.bmp");
+			m_txt = loadTexture("devil.bmp");
 			break;
 		case 2:
 			m_txt = loadTexture("pulBotE.bmp");
