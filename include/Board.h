@@ -12,13 +12,16 @@ public:
 	void update();
 	void draw();
 	void exit();
-	bool checkWin(int2 coords);
+	bool checkWin(int2,bool);
 
-	int2 placeInput();
+	int placeInput();
 	int2 placePul(int,bool);
 
 	Pul pulove[6][7];
 
 	SDL_Rect m_rect;
 	SDL_Texture* txt;
+
+	int botPlace();
+	int botPlaceRandom();
 };
