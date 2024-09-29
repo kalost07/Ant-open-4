@@ -13,6 +13,7 @@ public:
 	void draw();
 	void exit();
 	bool checkWin(int2,bool);
+	bool checkWin(bool);
 
 	int placeInput();
 	int2 placePul(int,bool);
