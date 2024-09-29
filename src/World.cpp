@@ -36,9 +36,7 @@ void World::run()
 
 				m_game.update();
 				m_presenter.draw();
-				while (!m_inputManager.anyKeyIsPressed()) {
-					m_inputManager.handleInput();
-				}
+				
 			}
 		}
 	}

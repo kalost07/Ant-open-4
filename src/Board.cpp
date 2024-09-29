@@ -22,42 +22,68 @@ void Board::init()
 
 void Board::update()
 {
-	if (world.m_inputManager.m_keyboardState[SDLK_1]||true) {
-		if(placePul(1, world.m_game.turn)) goto skip_input;
+	int2 pos = placeInput();
+	if (pos.x != -1) {
+		bool win = checkWin(pos);
+		if (win) cout << "win\n";
+		world.m_game.turn = !world.m_game.turn;
 	}
-	if (world.m_inputManager.m_keyboardState[SDLK_2]) {
-		if (placePul(2, world.m_game.turn)) goto skip_input;
-	}
-	if (world.m_inputManager.m_keyboardState[SDLK_3]) {
-		if (placePul(3, world.m_game.turn)) goto skip_input;
-	}
-	if (world.m_inputManager.m_keyboardState[SDLK_4]) {
-		if (placePul(4, world.m_game.turn)) goto skip_input;
-	}
-	if (world.m_inputManager.m_keyboardState[SDLK_5]) {
-		if (placePul(5, world.m_game.turn)) goto skip_input;
-	}
-	if (world.m_inputManager.m_keyboardState[SDLK_6]) {
-		if (placePul(6, world.m_game.turn)) goto skip_input;
-	}
-	if (world.m_inputManager.m_keyboardState[SDLK_7]) {
-		if (placePul(7, world.m_game.turn)) goto skip_input;
-	}
-	skip_input:
-	;
 	//update pulove
 }
-
-bool Board::placePul(int col,bool player)
+int2 Board::placeInput()
+{
+	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_1]) {
+		int2 pos = placePul(0, world.m_game.turn);
+		if (pos.x != -1) {
+			return pos;
+		}
+	}
+	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_2]) {
+		int2 pos = placePul(1, world.m_game.turn);
+		if (pos.x != -1) {
+			return pos;
+		}
+	}
+	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_3]) {
+		int2 pos = placePul(2, world.m_game.turn);
+		if (pos.x != -1) {
+			return pos;
+		}
+	}
+	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_4]) {
+		int2 pos = placePul(3, world.m_game.turn);
+		if (pos.x != -1) {
+			return pos;
+		}
+	}
+	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_5]) {
+		int2 pos = placePul(4, world.m_game.turn);
+		if (pos.x != -1) {
+			return pos;
+		}
+	}
+	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_6]) {
+		int2 pos = placePul(5, world.m_game.turn);
+		if (pos.x != -1) {
+			return pos;
+		}
+	}
+	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_7]) {
+		int2 pos = placePul(6, world.m_game.turn);
+		if (pos.x != -1) {
+			return pos;
+		}
+	}
+}
+int2 Board::placePul(int col,bool player)
 {
 	for (int i = 0; i < 6; i++) {
 		if (pulove[i][col].active == false) {
 			pulove[i][col].init({ col * 100,1000 - i * 100 }, player);
-			std::cout << "h";
-			return true;
+			return { i,col };
 		}
 	}
-	return false;
+	return { -1,-1 };
 }
 void Board::draw()
 {
