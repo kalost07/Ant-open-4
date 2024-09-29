@@ -12,6 +12,7 @@ public:
 	void update();
 	void draw();
 	void exit();
+	bool checkWin(int2 coords);
 
 	bool placePul(int,bool);
 
