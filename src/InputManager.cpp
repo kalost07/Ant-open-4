@@ -110,6 +110,7 @@ void InputManager::handleInput()
         }
 
         m_mouseIsHolded = true;
+        m_mouseIsPressedPrevFrame = true;
     }
     else
     {

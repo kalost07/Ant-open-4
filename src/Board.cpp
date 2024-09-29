@@ -116,36 +116,37 @@ bool Board::checkWin(int2 coords, bool player)
 			offset = { -1,-1 };
 			break;
 		case 1:
-			offset = { 1,-1 };
+			offset = { 1,1 };
 			break;
 		case 2:
 			offset = { 0,-1 };
 			break;
 		case 3:
-			offset = { -1,0 };
+			offset = { 0,1 };
 			break;
 		case 4:
 			offset = { 1,0 };
 			break;
 		case 5:
-			offset = { -1,1 };
+			offset = { -1,0 };
 			break;
 		case 6:
-			offset = { 0,1 };
+			offset = { -1,1 };
 			break;
 		case 7:
 			offset = { 1,1 };
 			break;
 		}
-		bool winningLine = true;
+		std::cout << i;
+		int line[4] = { 0,0,0,0 };
 		for (int j = 1; j < 4; j++) {
-			if (coords.x - j * offset.x < 0 || coords.x - j * offset.x>5 || coords.y - j * offset.y < 0 || coords.y - j * offset.y>6
+			while (!(coords.x - j * offset.x < 0 || coords.x - j * offset.x>5 || coords.y - j * offset.y < 0 || coords.y - j * offset.y>6
 				|| pulove[coords.x - j * offset.x][coords.y - j * offset.y].active == false || 
-				player != pulove[coords.x - j * offset.x][coords.y - j * offset.y].m_player) {
-				winningLine = false;
+				player != pulove[coords.x - j * offset.x][coords.y - j * offset.y].m_player)) {
+				line[i / 2]++;
 			}
 		}
-		if (winningLine) {
+		if (line[i/2]>=3) {
 			return true;
 		}
 
