@@ -80,7 +80,10 @@ int2 Board::placePul(int col,bool player)
 {
 	for (int i = 0; i < 6; i++) {
 		if (pulove[i][col].active == false) {
-			pulove[i][col].init({ col * 100,1000 - i * 100 }, player);
+			int txt_num;
+			if (player == 0) txt_num = 0;
+			else txt_num = world.m_game.botState + 1;
+			pulove[i][col].init({ col * 100,1000 - i * 100 }, player, txt_num);
 			return { i,col };
 		}
 	}

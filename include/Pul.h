@@ -11,9 +11,9 @@ public:
 
 	SDL_Rect pos;
 	int m_player;
-	SDL_Texture* txt;
+	SDL_Texture* m_txt;
 
-	void init(int2, int);
+	void init(int2, int, int);
 	void draw();
 
 };

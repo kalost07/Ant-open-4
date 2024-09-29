@@ -22,7 +22,6 @@ void World::run()
 {
 
 	m_inputManager.handleInput();
-	m_presenter.draw();
 	if (game_state == 0) {
 		if (m_inputManager.m_mouseIsPressed) {
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_quit_rect)) {
@@ -32,11 +31,17 @@ void World::run()
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_play_rect)) {
 				game_state = 1;
 				m_inputManager.handleInput();
-				m_game.init();
-
-				m_game.update();
-				m_presenter.draw();
-				
+				m_game.init(0);
+			}
+			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_playBotE_rect)) {
+				game_state = 1;
+				m_inputManager.handleInput();
+				m_game.init(1);
+			}
+			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_playBotH_rect)) {
+				game_state = 1;
+				m_inputManager.handleInput();
+				m_game.init(2);
 			}
 		}
 	}
