@@ -41,7 +41,7 @@ void Board::update()
 	}
 	int2 pos = placePul(col, world.m_game.turn);
 	if (pos.x != -1) {
-		bool win = checkWin(pos,world.m_game.turn);
+		bool win = checkWin(world.m_game.turn);
 		if (win) {
 			world.game_state = 2;
 			endState = world.m_game.turn;
@@ -57,6 +57,10 @@ void Board::update()
 }
 int Board::placeInput()
 {
+	if (world.m_inputManager.m_mouseOnClick && MouseIsInRect(world.m_inputManager.m_mouseCoor, m_rect)) {
+		return (world.m_inputManager.m_mouseCoor.x - 610) / 100;
+	}
+
 	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_1]) {
 		return 0;
 	}
@@ -154,6 +158,58 @@ bool Board::checkWin(int2 coords, bool player)
 	return false;
 }
 
+bool Board::checkWin(bool player)
+{
+	for (int x = 0; x < 6; x++) {
+		for (int y = 0; y < 7; y++) {
+
+
+			for (int i = 0; i < 8; i++) {
+				int2 offset;
+				switch (i) {
+				case 0:
+					offset = { -1,-1 };
+					break;
+				case 1:
+					offset = { 1,-1 };
+					break;
+				case 2:
+					offset = { 0,-1 };
+					break;
+				case 3:
+					offset = { -1,0 };
+					break;
+				case 4:
+					offset = { 1,0 };
+					break;
+				case 5:
+					offset = { -1,1 };
+					break;
+				case 6:
+					offset = { 0,1 };
+					break;
+				case 7:
+					offset = { 1,1 };
+					break;
+				}
+				bool winningLine = true;
+				for (int j = 0; j < 4; j++) {
+					if (x - j * offset.x < 0 || x - j * offset.x>5 || y - j * offset.y < 0 || y - j * offset.y>6
+						|| pulove[x - j * offset.x][y - j * offset.y].active == false ||
+						player != pulove[x - j * offset.x][y - j * offset.y].m_player) {
+						winningLine = false;
+					}
+				}
+				if (winningLine) {
+					return true;
+				}
+
+			}
+		}
+	}
+	return false;
+}
+
 void Board::exit()
 {
 	for (int i = 0; i < 6; i++) {
@@ -170,7 +226,7 @@ int Board::botPlace() {
 	for (int i = 0; i < 7; i++) {
 		for (int j = 0; j < 6; j++) {
 			if (pulove[j][i].active == false) {
-				if (checkWin({ j,i }, 1)) return i;
+				if (checkWin(1)) return i;
 				break;
 			}
 		}
@@ -179,7 +235,7 @@ int Board::botPlace() {
 	for (int i = 0; i < 7; i++) {
 		for (int j = 0; j < 6; j++) {
 			if (pulove[j][i].active == false) {
-				if (checkWin({ j,i }, 0)) return i;
+				if (checkWin(0)) return i;
 				break;
 			}
 		}
