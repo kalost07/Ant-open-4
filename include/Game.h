@@ -15,5 +15,7 @@ public:
 
 	Board m_board;
 
+	SDL_Texture* m_bg;
+
 	bool turn;
 };
