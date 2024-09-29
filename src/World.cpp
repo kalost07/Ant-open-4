@@ -47,7 +47,7 @@ void World::run()
 	}
 	if (game_state == 1) {
 		m_game.update();
-		if (game_state == 2) menu.init_win_scr(!m_game.turn);
+		if (game_state == 2) menu.init_win_scr(m_game.m_board.endState);
 	}
 	if (game_state == 2) {
 		if (m_inputManager.m_mouseIsPressed) {
