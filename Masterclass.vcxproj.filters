@@ -34,6 +34,9 @@
     <ClCompile Include="src\StartMenu.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Pul.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\World.h">
@@ -55,6 +58,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\StartMenu.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Pul.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
