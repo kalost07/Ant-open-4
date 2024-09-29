@@ -32,6 +32,7 @@ SDL_Texture* LoadTexture(string configFile, SDL_Renderer* renderer)
             SDL_FreeSurface(loadingSurface);
         }
     }
+    bool nuuh = false;
 
     return texture;
 }

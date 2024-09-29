@@ -42,19 +42,7 @@ void World::run()
 			}
 		}
 	}
-	if (game_state == 1) {
-
-		m_game.update();
-	}
-	if (game_state == 2) {
-		menu.init_outFuel_all();
-	}
-	if (game_state == 3) {
-		menu.init_crashed_all();
-	}
-	if (game_state == 4) {
-		menu.init_escaped_all();
-	}
+	
 	m_presenter.draw();
 }
 

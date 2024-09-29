@@ -63,9 +63,6 @@ void Presenter::draw()
     
     world.menu.draw_all_start();
     world.m_game.draw();
-    world.menu.draw_crashed_all();
-    world.menu.draw_outFuel_all();
-    world.menu.draw_escaped_all();
     SDL_RenderPresent(m_main_renderer);
 }
 
