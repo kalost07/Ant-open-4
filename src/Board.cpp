@@ -14,7 +14,7 @@ Board::~Board()
 
 void Board::init()
 {
-	m_rect = { 0,0,100,100 };
+	m_rect = { 0,0,640,480 };
 	txt = loadTexture("board.bmp");
 	//init pulove
 }
@@ -27,7 +27,7 @@ void Board::update()
 void Board::draw()
 {
 	Drawable tmp;
-	tmp.srect = m_rect;
+	tmp.drect = m_rect;
 	tmp.texture = txt;
 	drawObject(tmp);
 	//draw pulove

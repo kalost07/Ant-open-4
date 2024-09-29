@@ -60,9 +60,16 @@ void Presenter::draw()
 {
     SDL_SetRenderDrawColor(Presenter::m_main_renderer, 0, 0, 0, 1);
     SDL_RenderClear(m_main_renderer);
-    
-    world.menu.draw_all_start();
-    world.m_game.draw();
+    switch (world.game_state) {
+    case 0:
+        world.menu.draw_all_start();
+        break;
+    case 1:
+        world.m_game.draw();
+        break;
+    default:
+        break;
+    }
     SDL_RenderPresent(m_main_renderer);
 }
 

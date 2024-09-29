@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Engine.h"
+#include "Board.h"
 
 class Game {
 public:
@@ -12,4 +13,5 @@ public:
 	void draw();
 	void exit();
 
+	Board m_board;
 };
