@@ -110,54 +110,6 @@ void Board::draw()
 		}
 	}
 }
-
-bool Board::checkWin(int2 coords, bool player)
-{
-	for (int i = 0; i < 8; i++) {
-		int2 offset;
-		switch (i) {
-		case 0:
-			offset = { -1,-1 };
-			break;
-		case 1:
-			offset = { 1,1 };
-			break;
-		case 2:
-			offset = { 0,-1 };
-			break;
-		case 3:
-			offset = { 0,1 };
-			break;
-		case 4:
-			offset = { 1,0 };
-			break;
-		case 5:
-			offset = { -1,0 };
-			break;
-		case 6:
-			offset = { -1,1 };
-			break;
-		case 7:
-			offset = { 1,1 };
-			break;
-		}
-		std::cout << i;
-		int line[4] = { 0,0,0,0 };
-		for (int j = 1; j < 4; j++) {
-			while (!(coords.x - j * offset.x < 0 || coords.x - j * offset.x>5 || coords.y - j * offset.y < 0 || coords.y - j * offset.y>6
-				|| pulove[coords.x - j * offset.x][coords.y - j * offset.y].active == false || 
-				player != pulove[coords.x - j * offset.x][coords.y - j * offset.y].m_player)) {
-				line[i / 2]++;
-			}
-		}
-		if (line[i/2]>=3) {
-			return true;
-		}
-
-	}
-	return false;
-}
-
 bool Board::checkWin(bool player)
 {
 	for (int x = 0; x < 6; x++) {
@@ -224,21 +176,19 @@ int Board::botPlace() {
 
 	// Check own wins
 	for (int i = 0; i < 7; i++) {
-		for (int j = 0; j < 6; j++) {
-			if (pulove[j][i].active == false) {
-				if (checkWin(1)) return i;
-				break;
-			}
-		}
+		int2 pos = placePul(i, 1);
+		if (pos.x == -1) continue;
+		bool win = checkWin(1);
+		pulove[pos.x][pos.y].exit();
+		if (win) return i;
 	}
 	// Check opp wins
 	for (int i = 0; i < 7; i++) {
-		for (int j = 0; j < 6; j++) {
-			if (pulove[j][i].active == false) {
-				if (checkWin(0)) return i;
-				break;
-			}
-		}
+		int2 pos = placePul(i, 0);
+		if (pos.x == -1) continue;
+		bool win = checkWin(0);
+		pulove[pos.x][pos.y].exit();
+		if (win) return i;
 	}
 	return botPlaceRandom();
 }

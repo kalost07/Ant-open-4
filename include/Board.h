@@ -12,7 +12,6 @@ public:
 	void update();
 	void draw();
 	void exit();
-	bool checkWin(int2,bool);
 	bool checkWin(bool);
 
 	int placeInput();

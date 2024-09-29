@@ -3,23 +3,23 @@
 
 void Menu::init_quit()
 {
-	m_quit_rect = { 840,800,400,200 };
+	m_quit_rect = { 105,800,400,200 };
 	m_quit_texture = loadTexture("quit.bmp");
 }
 
 void Menu::init_play()
 {
-	m_play_rect = { 840,500,400,200 };
+	m_play_rect = { 105,500,400,200 };
 	m_play_texture = loadTexture("play.bmp");
 }
 void Menu::init_playBotE()
 {
-	m_playBotE_rect = { 340,500,400,200 };
+	m_playBotE_rect = { 1415,500,400,200 };
 	m_playBotE_texture = loadTexture("playBotE.bmp");
 }
 void Menu::init_playBotH()
 {
-	m_playBotH_rect = { 1340,500,400,200 };
+	m_playBotH_rect = { 1415,800,400,200 };
 	m_playBotH_texture = loadTexture("playBotH.bmp");
 }
 
@@ -37,7 +37,7 @@ void Menu::init_background_start()
 
 void Menu::init_win(int player)
 {
-	m_win_rect = { (1920 - 600) / 2,50,600,300 };
+	m_win_rect = { (1920 - 400) / 2,250,400,200 };
 	switch (player) {
 	case 0:
 		m_win_texture = loadTexture("win1.bmp");
@@ -132,7 +132,7 @@ void Menu::draw_win()
 	Drawable tmp;
 	tmp.texture = m_win_texture;
 	tmp.drect = m_win_rect;
-	tmp.srect = { 0,0,m_win_rect.w,m_win_rect.h };
+	tmp.srect = { 0,0,600,300 };
 	drawObject(tmp);
 }
 
