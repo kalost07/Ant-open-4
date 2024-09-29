@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Anvil.cpp" />
     <ClCompile Include="src\Board.cpp" />
     <ClCompile Include="src\Bot.cpp" />
     <ClCompile Include="src\Engine.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Anvil.h" />
     <ClInclude Include="include\Board.h" />
     <ClInclude Include="include\Bot.h" />
     <ClInclude Include="include\defines.h" />

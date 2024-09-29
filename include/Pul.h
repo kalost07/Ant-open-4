@@ -16,4 +16,6 @@ public:
 	void init(int2, int);
 	void draw();
 
+	void exit();
+
 };

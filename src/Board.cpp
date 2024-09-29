@@ -16,8 +16,8 @@ Board::~Board()
 
 void Board::init()
 {
-	m_rect = { 0,0,640,480 };
-	txt = loadTexture("board.bmp");
+	m_rect = { 1920/2-700/2,1080-600,700,600 };
+	txt = loadTexture("grid.bmp");
 }
 
 void Board::update()
@@ -80,7 +80,7 @@ int2 Board::placePul(int col,bool player)
 {
 	for (int i = 0; i < 6; i++) {
 		if (pulove[i][col].active == false) {
-			pulove[i][col].init({ col * 100,1000 - i * 100 }, player);
+			pulove[i][col].init({ col * 100 + 1920/2 - 700/2,1080 - i * 100 - 100}, player);
 			return { i,col };
 		}
 	}
@@ -147,5 +147,10 @@ bool Board::checkWin(int2 coords)
 
 void Board::exit()
 {
+	for (int i = 0; i < 6; i++) {
+		for (int j = 0; j < 7; j++) {
+			pulove[i][j].exit(); 
+		}
+	}
 	//quit pulove
 }

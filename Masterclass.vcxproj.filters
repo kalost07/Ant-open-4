@@ -41,6 +41,9 @@
     <ClCompile Include="src\Bot.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Anvil.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\World.h">
@@ -69,6 +72,9 @@
     </ClInclude>
     <ClInclude Include="include\Board.h" />
     <ClInclude Include="include\Bot.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Anvil.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
