@@ -11,11 +11,12 @@ Game::~Game()
 {
 }
 
-void Game::init()
+void Game::init(int bot)
 {
 	m_board.init();
 	turn = 0;
 	m_bg = loadTexture("gameBackground.bmp");
+	botState = bot;
 }
 
 void Game::update()

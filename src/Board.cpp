@@ -16,71 +16,70 @@ Board::~Board()
 
 void Board::init()
 {
-	m_rect = { 1920/2-700/2,1080-600,700,600 };
-	txt = loadTexture("grid.bmp");
+	m_rect = { 1920 / 2 - 700 / 2,1080 - 600,700,600 };
+	txt = loadTexture("board.bmp");
+	srand(time(NULL));
 }
 
 void Board::update()
 {
-	int2 pos = placeInput();
+	int col;
+	if (world.m_game.turn == 0) col = placeInput();
+	else {
+		switch (world.m_game.botState) {
+		case 0:
+			col = placeInput();
+			break;
+		case 1:
+			col = botPlaceRandom();
+			break;
+		case 2:
+			col = botPlace();
+			break;
+		}
+	}
+	int2 pos = placePul(col, world.m_game.turn);
 	if (pos.x != -1) {
-		bool win = checkWin(pos);
+		bool win = checkWin(pos,world.m_game.turn);
 		if (win) cout << "win\n";
 		world.m_game.turn = !world.m_game.turn;
 	}
 	//update pulove
 }
-int2 Board::placeInput()
+int Board::placeInput()
 {
 	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_1]) {
-		int2 pos = placePul(0, world.m_game.turn);
-		if (pos.x != -1) {
-			return pos;
-		}
+		return 0;
 	}
 	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_2]) {
-		int2 pos = placePul(1, world.m_game.turn);
-		if (pos.x != -1) {
-			return pos;
-		}
+		return 1;
 	}
 	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_3]) {
-		int2 pos = placePul(2, world.m_game.turn);
-		if (pos.x != -1) {
-			return pos;
-		}
+		return 2;
 	}
 	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_4]) {
-		int2 pos = placePul(3, world.m_game.turn);
-		if (pos.x != -1) {
-			return pos;
-		}
+		return 3;
 	}
 	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_5]) {
-		int2 pos = placePul(4, world.m_game.turn);
-		if (pos.x != -1) {
-			return pos;
-		}
+		return 4;
 	}
 	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_6]) {
-		int2 pos = placePul(5, world.m_game.turn);
-		if (pos.x != -1) {
-			return pos;
-		}
+		return 5;
 	}
 	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_7]) {
-		int2 pos = placePul(6, world.m_game.turn);
-		if (pos.x != -1) {
-			return pos;
-		}
+		return 6;
 	}
-	return { -1,-1 };
+	return -1;
 }
 int2 Board::placePul(int col,bool player)
 {
+	if (col == -1)return { -1,-1 };
 	for (int i = 0; i < 6; i++) {
 		if (pulove[i][col].active == false) {
-			pulove[i][col].init({ col * 100 + 1920/2 - 700/2,1080 - i * 100 - 100}, player);
+			int txt_num;
+			if (player == 0) txt_num = 0;
+			else txt_num = world.m_game.botState + 1;
+			pulove[i][col].init({ col * 100 + 1920 / 2 - 700 / 2,1080 - i * 100 - 100 }, player, txt_num);
 			return { i,col };
 		}
 	}
@@ -99,7 +98,7 @@ void Board::draw()
 	}
 }
 
-bool Board::checkWin(int2 coords)
+bool Board::checkWin(int2 coords, bool player)
 {
 	for (int i = 0; i < 8; i++) {
 		int2 offset;
@@ -133,7 +132,7 @@ bool Board::checkWin(int2 coords)
 		for (int j = 1; j < 4; j++) {
 			if (coords.x - j * offset.x < 0 || coords.x - j * offset.x>5 || coords.y - j * offset.y < 0 || coords.y - j * offset.y>6
 				|| pulove[coords.x - j * offset.x][coords.y - j * offset.y].active == false || 
-				pulove[coords.x][coords.y].m_player != pulove[coords.x - j * offset.x][coords.y - j * offset.y].m_player) {
+				player != pulove[coords.x - j * offset.x][coords.y - j * offset.y].m_player) {
 				winningLine = false;
 			}
 		}
@@ -153,4 +152,30 @@ void Board::exit()
 		}
 	}
 	//quit pulove
+}
+
+int Board::botPlace() {
+
+	// Check own wins
+	for (int i = 0; i < 7; i++) {
+		for (int j = 0; j < 6; j++) {
+			if (pulove[j][i].active == false) {
+				if (checkWin({ j,i }, 1)) return i;
+				break;
+			}
+		}
+	}
+	// Check opp wins
+	for (int i = 0; i < 7; i++) {
+		for (int j = 0; j < 6; j++) {
+			if (pulove[j][i].active == false) {
+				if (checkWin({ j,i }, 0)) return i;
+				break;
+			}
+		}
+	}
+	return botPlaceRandom();
+}
+int Board::botPlaceRandom() {
+	return rand() % 7;
 }

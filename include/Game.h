@@ -8,12 +8,13 @@ public:
 	Game();
 	~Game();
 
-	void init();
+	void init(int);
 	void update();
 	void draw();
 	void exit();
 
 	Board m_board;
+	int botState;
 
 	SDL_Texture* m_bg;
 
