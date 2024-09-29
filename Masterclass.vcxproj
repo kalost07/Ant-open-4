@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Board.cpp" />
+    <ClCompile Include="src\Bot.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
@@ -163,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Board.h" />
+    <ClInclude Include="include\Bot.h" />
     <ClInclude Include="include\defines.h" />
     <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\Game.h" />
