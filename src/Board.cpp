@@ -210,6 +210,60 @@ bool Board::checkWin(bool player)
 	return false;
 }
 
+
+bool Board::checkWinCoords(int2 coords, bool player)
+{
+	placePul(coords.x,player);
+	for (int x = 0; x < 6; x++) {
+		for (int y = 0; y < 7; y++) {
+
+
+			for (int i = 0; i < 8; i++) {
+				int2 offset;
+				switch (i) {
+				case 0:
+					offset = { -1,-1 };
+					break;
+				case 1:
+					offset = { 1,-1 };
+					break;
+				case 2:
+					offset = { 0,-1 };
+					break;
+				case 3:
+					offset = { -1,0 };
+					break;
+				case 4:
+					offset = { 1,0 };
+					break;
+				case 5:
+					offset = { -1,1 };
+					break;
+				case 6:
+					offset = { 0,1 };
+					break;
+				case 7:
+					offset = { 1,1 };
+					break;
+				}
+				bool winningLine = true;
+				for (int j = 1; j < 4; j++) {
+					while (coords.x - j * offset.x < 0 || coords.x - j * offset.x>5 || coords.y - j * offset.y < 0 || coords.y - j * offset.y>6
+						|| pulove[coords.x - j * offset.x][coords.y - j * offset.y].active == false ||
+						player != pulove[coords.x - j * offset.x][coords.y - j * offset.y].m_player) {
+						winningLine=false;
+					}
+				}
+				if (winningLine) {
+					return true;
+				}
+
+			}
+		}
+	}
+	return false;
+}
+
 void Board::exit()
 {
 	for (int i = 0; i < 6; i++) {

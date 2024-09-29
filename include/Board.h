@@ -14,6 +14,7 @@ public:
 	void exit();
 	bool checkWin(int2,bool);
 	bool checkWin(bool);
+	bool checkWinCoords(int2, bool);
 
 	int placeInput();
 	int2 placePul(int,bool);
