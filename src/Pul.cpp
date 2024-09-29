@@ -14,6 +14,7 @@ void Pul::init(int2 coords,int player)
 	m_coords = coords;
 	drawable.drect.w = 100;
 	drawable.drect.h = 100;
+	active = true;
 
 }
 

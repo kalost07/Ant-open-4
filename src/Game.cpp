@@ -11,6 +11,7 @@ Game::~Game()
 void Game::init()
 {
 	m_board.init();
+	turn = 0;
 }
 
 void Game::update()
