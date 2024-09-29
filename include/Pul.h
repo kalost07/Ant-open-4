@@ -9,9 +9,9 @@ public:
 
 	bool active = false;
 
-	int2 m_coords;
+	SDL_Rect pos;
 	int m_player;
-	Drawable drawable;
+	SDL_Texture* txt;
 
 	void init(int2, int);
 	void draw();

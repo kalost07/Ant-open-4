@@ -30,7 +30,6 @@ void World::run()
 			}
 			
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_play_rect)) {
-				std::cout << "trigger/n";
 				game_state = 1;
 				m_inputManager.handleInput();
 				m_game.init();

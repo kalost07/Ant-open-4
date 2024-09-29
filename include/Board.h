@@ -14,6 +14,8 @@ public:
 	void exit();
 	bool checkWin(int2 coords);
 
+	bool placePul(int,bool);
+
 	Pul pulove[6][7];
 
 	SDL_Rect m_rect;
