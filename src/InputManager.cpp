@@ -34,6 +34,7 @@ void InputManager::handleInput()
     m_mouseIsPressed = false;
     m_mouseIsDoubleClicked = false;
     m_mouseIsRightPressed = false;
+    m_mouseOnRelease = false;
 
     while (SDL_PollEvent(&m_event))
     {
@@ -112,6 +113,7 @@ void InputManager::handleInput()
     }
     else
     {
+        if (m_mouseIsPressedPrevFrame) m_mouseOnRelease = true;
         m_mouseIsPressedPrevFrame = false;
         m_mouseOnClick = false;
     }
