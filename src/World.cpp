@@ -23,7 +23,7 @@ void World::run()
 
 	m_inputManager.handleInput();
 	if (game_state == 0) {
-		if (m_inputManager.m_mouseIsPressed) {
+		if (m_inputManager.m_mouseOnRelease) {
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_quit_rect)) {
 				quit();
 			}
@@ -50,7 +50,7 @@ void World::run()
 		if (game_state == 2) menu.init_win_scr(m_game.m_board.endState);
 	}
 	if (game_state == 2) {
-		if (m_inputManager.m_mouseIsPressed) {
+		if (m_inputManager.m_mouseOnRelease) {
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_quit_rect)) {
 				quit();
 			}
