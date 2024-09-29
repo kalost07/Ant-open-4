@@ -30,10 +30,10 @@ public:
 	void init_quit();
 	void init_title();
 	void init_background_start();
-	void init_win(bool);
+	void init_win(int);
 
 	void init_all_start();
-	void init_win_scr(bool);
+	void init_win_scr(int);
 
 	void draw_quit();
 	void draw_play();

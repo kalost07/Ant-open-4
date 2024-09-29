@@ -24,4 +24,6 @@ public:
 
 	int botPlace();
 	int botPlaceRandom();
+
+	int endState;
 };

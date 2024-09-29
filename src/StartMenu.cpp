@@ -35,11 +35,20 @@ void Menu::init_background_start()
 	m_background_start_texture = loadTexture("background.bmp");
 }
 
-void Menu::init_win(bool player)
+void Menu::init_win(int player)
 {
 	m_win_rect = { (1920 - 600) / 2,50,600,300 };
-	if (player == 0) m_win_texture = loadTexture("win1.bmp");
-	else m_win_texture = loadTexture("win2.bmp");
+	switch (player) {
+	case 0:
+		m_win_texture = loadTexture("win1.bmp");
+		break;
+	case 1:
+		m_win_texture = loadTexture("win2.bmp");
+		break;
+	case 2:
+		m_win_texture = loadTexture("draw.bmp");
+		break;
+	}
 }
 
 void Menu::init_all_start()
@@ -52,7 +61,7 @@ void Menu::init_all_start()
 	init_playBotH();
 }
 
-void Menu::init_win_scr(bool player)
+void Menu::init_win_scr(int player)
 {
 	init_quit();
 	init_play();
