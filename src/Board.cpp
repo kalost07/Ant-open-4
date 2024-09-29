@@ -41,7 +41,7 @@ void Board::update()
 	int2 pos = placePul(col, world.m_game.turn);
 	if (pos.x != -1) {
 		bool win = checkWin(pos,world.m_game.turn);
-		if (win) cout << "win\n";
+		if (win) world.game_state = 2;
 		world.m_game.turn = !world.m_game.turn;
 	}
 	//update pulove

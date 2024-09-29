@@ -47,6 +47,33 @@ void World::run()
 	}
 	if (game_state == 1) {
 		m_game.update();
+		if (game_state == 2) menu.init_win_scr(!m_game.turn);
+	}
+	if (game_state == 2) {
+		if (m_inputManager.m_mouseIsPressed) {
+			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_quit_rect)) {
+				quit();
+			}
+
+			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_play_rect)) {
+				game_state = 1;
+				m_inputManager.handleInput();
+				m_game.exit();
+				m_game.init(0);
+			}
+			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_playBotE_rect)) {
+				game_state = 1;
+				m_inputManager.handleInput();
+				m_game.exit();
+				m_game.init(1);
+			}
+			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_playBotH_rect)) {
+				game_state = 1;
+				m_inputManager.handleInput();
+				m_game.exit();
+				m_game.init(2);
+			}
+		}
 	}
 	m_presenter.draw();
 }
