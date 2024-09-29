@@ -43,7 +43,7 @@ void Board::update()
 	if (pos.x != -1) {
 		bool win = checkWin(pos,world.m_game.turn);
 		if (win) {
-			// world.game_state = 2;
+			world.game_state = 2;
 			endState = world.m_game.turn;
 		}
 		world.m_game.turn = !world.m_game.turn;
