@@ -77,6 +77,11 @@ void InputManager::handleInput()
     SDL_StartTextInput();
 
     m_keyboardState = SDL_GetKeyboardState(NULL);
+    for (int i = 0; i < 322; i++) {
+        m_keyOnRelease[i] = false;
+        if (!m_keyboardState[i] && m_keyIsPressedPrevFrame[i]) m_keyOnRelease[i] = true;
+        m_keyIsPressedPrevFrame[i] = m_keyboardState[i];
+    }
 
     m_scroll = 0;
 

@@ -29,6 +29,8 @@ public:
     int2 m_mouseCoor;
 
     static const Uint8* m_keyboardState;
+    bool m_keyOnRelease[322];
+    bool m_keyIsPressedPrevFrame[322];
 
     int m_scroll;
 

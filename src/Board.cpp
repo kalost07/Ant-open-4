@@ -32,48 +32,49 @@ void Board::update()
 }
 int2 Board::placeInput()
 {
-	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_1]) {
+	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_1]) {
 		int2 pos = placePul(0, world.m_game.turn);
 		if (pos.x != -1) {
 			return pos;
 		}
 	}
-	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_2]) {
+	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_2]) {
 		int2 pos = placePul(1, world.m_game.turn);
 		if (pos.x != -1) {
 			return pos;
 		}
 	}
-	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_3]) {
+	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_3]) {
 		int2 pos = placePul(2, world.m_game.turn);
 		if (pos.x != -1) {
 			return pos;
 		}
 	}
-	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_4]) {
+	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_4]) {
 		int2 pos = placePul(3, world.m_game.turn);
 		if (pos.x != -1) {
 			return pos;
 		}
 	}
-	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_5]) {
+	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_5]) {
 		int2 pos = placePul(4, world.m_game.turn);
 		if (pos.x != -1) {
 			return pos;
 		}
 	}
-	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_6]) {
+	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_6]) {
 		int2 pos = placePul(5, world.m_game.turn);
 		if (pos.x != -1) {
 			return pos;
 		}
 	}
-	if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_7]) {
+	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_7]) {
 		int2 pos = placePul(6, world.m_game.turn);
 		if (pos.x != -1) {
 			return pos;
 		}
 	}
+	return { -1,-1 };
 }
 int2 Board::placePul(int col,bool player)
 {
@@ -131,7 +132,8 @@ bool Board::checkWin(int2 coords)
 		bool winningLine = true;
 		for (int j = 1; j < 4; j++) {
 			if (coords.x - j * offset.x < 0 || coords.x - j * offset.x>5 || coords.y - j * offset.y < 0 || coords.y - j * offset.y>6
-				|| pulove[coords.x][coords.y].m_player != pulove[coords.x - j * offset.x][coords.y - j * offset.y].m_player) {
+				|| pulove[coords.x - j * offset.x][coords.y - j * offset.y].active == false || 
+				pulove[coords.x][coords.y].m_player != pulove[coords.x - j * offset.x][coords.y - j * offset.y].m_player) {
 				winningLine = false;
 			}
 		}
