@@ -17,7 +17,7 @@ Board::~Board()
 void Board::init()
 {
 	m_rect = { 1920 / 2 - 700 / 2,1080 - 600,700,600 };
-	txt = loadTexture("board.bmp");
+	txt = loadTexture("grid.bmp");
 	srand(time(NULL));
 }
 
