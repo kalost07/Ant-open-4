@@ -48,6 +48,10 @@ void Board::update()
 }
 int Board::placeInput()
 {
+	if (world.m_inputManager.m_mouseIsPressed && MouseIsInRect(world.m_inputManager.m_mouseCoor, m_rect)) {
+		return (world.m_inputManager.m_mouseCoor.x - 610) / 100;
+	}
+
 	if (world.m_inputManager.m_keyOnRelease[SDL_SCANCODE_1]) {
 		return 0;
 	}
