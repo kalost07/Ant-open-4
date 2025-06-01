@@ -18,7 +18,7 @@ void MovingPlatform::init(int2 p) {
         right = rand() % (Board::m_rect.w)+Board::m_rect.x;
     }
     pos.x = left+rand()%(right-left);
-    pos.y = rand() % (Board::m_rect.h - pos.h) + Board::m_rect.y;
+    pos.y = p.y;
 }
 
 void MovingPlatform::update() {

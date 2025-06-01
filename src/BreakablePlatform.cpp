@@ -17,7 +17,10 @@ void BreakablePlatform::breakPlatform()
 }
 
 void BreakablePlatform::init(int2 p) {
-
+	pos.x = p.x;
+	pos.y = p.y;
+	pos.w = 100;
+	pos.h = 20;
 }
 
 void BreakablePlatform::update() {
