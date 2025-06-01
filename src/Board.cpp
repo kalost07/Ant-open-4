@@ -34,7 +34,7 @@ void Board::init(int hole)
 	BreakablePlatform::txt = loadTexture("breakablePlatform.bmp");
 	
 	srand(time(NULL));
-	goalDist = int(10000. * hole * sqrt(hole));
+	goalDist = int(1000. * hole * sqrt(hole));
 	dist = 0;
 	maxDist = 0;
 	controlEnabled = true;
@@ -124,6 +124,8 @@ void Board::exit()
 {
 	for (auto& platform : platforms) {
 		platform->exit();
+		
 	}
+	platforms.clear();
 	tiger.exit();
 }
