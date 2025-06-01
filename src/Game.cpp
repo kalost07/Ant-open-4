@@ -15,7 +15,7 @@ void Game::init(int bot)
 {
 	m_board.init();
 	turn = 0;
-	m_bg = loadTexture("gameBackground.bmp");
+	m_bg = loadTexture("background.bmp");
 	botState = bot;
 }
 
