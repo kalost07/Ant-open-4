@@ -15,63 +15,41 @@ void World::init()
 	m_presenter.init();
 	menu.init_all_start();
 	
-	game_state = 0;
+	game_state = Main_Menu;
 }
 
 void World::run()
 {
 
 	m_inputManager.handleInput();
-	if (game_state == 0) {
+	if (game_state == Main_Menu) {
 		if (m_inputManager.m_mouseIsPressed) {
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_quit_rect)) {
 				quit();
 			}
 			
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_play_rect)) {
-				game_state = 1;
+				game_state = In_Game;
 				m_inputManager.handleInput();
 				m_game.init(0);
 			}
-			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_playBotE_rect)) {
-				game_state = 1;
-				m_inputManager.handleInput();
-				m_game.init(1);
-			}
-			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_playBotH_rect)) {
-				game_state = 1;
-				m_inputManager.handleInput();
-				m_game.init(2);
-			}
 		}
 	}
-	if (game_state == 1) {
+	if (game_state == In_Game) {
 		m_game.update();
-		if (game_state == 2) menu.init_win_scr(m_game.m_board.endState);
+		if (game_state == Win_Screen) menu.init_win_scr(m_game.m_board.endState);
 	}
-	if (game_state == 2) {
+	if (game_state == Win_Screen) {
 		if (m_inputManager.m_mouseIsPressed) {
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_quit_rect)) {
 				quit();
 			}
 
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_play_rect)) {
-				game_state = 1;
+				game_state = In_Game;
 				m_inputManager.handleInput();
 				m_game.exit();
 				m_game.init(0);
-			}
-			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_playBotE_rect)) {
-				game_state = 1;
-				m_inputManager.handleInput();
-				m_game.exit();
-				m_game.init(1);
-			}
-			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_playBotH_rect)) {
-				game_state = 1;
-				m_inputManager.handleInput();
-				m_game.exit();
-				m_game.init(2);
 			}
 		}
 	}

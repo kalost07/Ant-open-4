@@ -6,6 +6,12 @@
 #include "Game.h"
 #include "StartMenu.h"
 
+enum Game_State {
+	Main_Menu,
+	In_Game,
+	Win_Screen
+};
+
 class World
 {
 public:
@@ -26,7 +32,8 @@ public:
 	bool isRunning();
 	void quit();
 
-	int game_state = 0;
+	Game_State game_state = Main_Menu;
 private:
 	bool m_isRunning;
 };
+
