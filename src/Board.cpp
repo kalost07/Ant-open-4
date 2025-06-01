@@ -27,15 +27,24 @@ void Board::init(int hole)
 	dist = 0;
 	controlEnabled = true;
 	tiger.init();
-	platforms.push_back(new Platform());
-	for (auto platform : platforms) {
+	platforms.emplace_back(make_unique<Platform>());
+	for (auto& platform : platforms) {
 		platform->init({1000,500});
 	}
 }
 
 void Board::update()
 {
-	for (auto platform : platforms) {
+	for (auto& platform : platforms) {
+		if (platform->pos.y >= PLATFORM_DESPAWN) {
+			platform->exit();
+			switch (rand() % 3) {
+				case 0: platform = make_unique<Platform>(); break;
+				case 1: platform = make_unique<BreakablePlatform>(); break;
+				case 2: platform = make_unique<MovingPlatform>(); break;
+			}
+			platform->init({1000,500});
+		}
 		platform->update();
 	}
 	tiger.update();
@@ -76,7 +85,7 @@ void Board::draw()
 	tmp.drect = m_rect;
 	tmp.texture = txt;
 	drawObject(tmp);
-	for (auto platform : platforms) {
+	for (auto& platform : platforms) {
 		platform->draw();
 	}
 	tiger.draw();
@@ -84,7 +93,7 @@ void Board::draw()
 
 void Board::exit()
 {
-	for (auto platform : platforms) {
+	for (auto& platform : platforms) {
 		platform->exit();
 	}
 	tiger.exit();
