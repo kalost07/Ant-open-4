@@ -13,7 +13,6 @@ BreakablePlatform::~BreakablePlatform()
 void BreakablePlatform::breakPlatform()
 {
 	active = false;
-	
 }
 
 void BreakablePlatform::init(int2 p) {
@@ -21,8 +20,5 @@ void BreakablePlatform::init(int2 p) {
 	pos.y = p.y;
 	pos.w = 100;
 	pos.h = 20;
-}
-
-void BreakablePlatform::update() {
-	baseUpdate();
+	active = true;
 }

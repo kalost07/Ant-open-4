@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <random>
 
 #include <vector>
 #include <SDL.h>
@@ -25,6 +26,8 @@ static string GAME_FOLDER = "game\\";
 const float GRAVITY = 32;
 const int FPS = 60;
 const bool DEBUG = false;
+
+
 
 struct int2
 {

@@ -13,7 +13,6 @@ public:
 
 	void breakPlatform();
 	void init(int2);
-	void update();
 
 	SDL_Texture* getTxt() {
 		return txt;

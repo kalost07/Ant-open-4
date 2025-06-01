@@ -1,5 +1,13 @@
 #include "Engine.h"
 
+std::random_device rd;  // Seed source
+std::mt19937 gen(rd()); // Mersenne Twister engine
+std::uniform_real_distribution<> dis(0.0, 1.0);
+
+double rand01() {
+    return dis(gen);
+}
+
 SDL_Texture* LoadTexture(string configFile, SDL_Renderer* renderer)
 {
     SDL_Texture* texture = nullptr;
