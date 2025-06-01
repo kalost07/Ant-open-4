@@ -64,7 +64,7 @@ void Game::win_animation()
 	
 	tram.texture = m_tram;
 	drawObject(tram);
-	tram.drect.x += 15;
+	tram.drect.x += 45;
 	m_board.tiger.draw();
 
 	

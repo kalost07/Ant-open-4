@@ -63,7 +63,7 @@ int Board::pickPlat() {
 }
 
 void Board::spawnPlatforms(int start, int end) {
-	for (int i = start - start % platDist + platDist; i < end; i += platDist) {
+	for (int i = start - start % platDist + platDist; i <= end; i += platDist) {
 		switch (pickPlat()) {
 		case 0: platforms.emplace_back(make_unique<Platform>()); break;
 		case 1: platforms.emplace_back(make_unique<BreakablePlatform>()); break;
