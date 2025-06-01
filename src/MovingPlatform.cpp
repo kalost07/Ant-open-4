@@ -2,7 +2,7 @@
 #include "MovingPlatform.h"
 #include "Board.h"
 
-SDL_Texture* MovingPlatform::txt = loadTexture("MovingPlatform.bmp");
+SDL_Texture* MovingPlatform::txt = loadTexture("movingPlatform.bmp");
 
 MovingPlatform::MovingPlatform() {}
 
