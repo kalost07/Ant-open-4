@@ -57,6 +57,7 @@ void Character::update()
 				vel = 0;
 			}
 		}
+		if (vel < -100) vel = -100;
 	}
 }
 

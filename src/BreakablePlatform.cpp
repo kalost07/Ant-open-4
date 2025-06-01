@@ -1,6 +1,6 @@
 #include "BreakablePlatform.h"
 
-SDL_Texture* BreakablePlatform::txt = loadTexture("BreakablePlatform.bmp");
+SDL_Texture* BreakablePlatform::txt = loadTexture("breakablePlatform.bmp");
 
 BreakablePlatform::BreakablePlatform()
 {

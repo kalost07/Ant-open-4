@@ -2,7 +2,7 @@
 #include "World.h"
 extern World world;
 
-SDL_Texture* Platform::txt;
+SDL_Texture* Platform::txt = loadTexture("platform.bmp");
 
 Platform::Platform()
 {

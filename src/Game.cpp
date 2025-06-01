@@ -13,7 +13,7 @@ Game::~Game()
 
 void Game::init()
 {
-	m_board.init(3);
+	m_board.init(rand()%5 + 1);
 	m_bg = loadTexture("background.bmp");
 	speedLevel = 1;
 }

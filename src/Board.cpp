@@ -29,6 +29,9 @@ void Board::init(int hole)
 		case 4: txt = loadTexture("hell_background.bmp"); break;
 		case 5: txt = loadTexture("abyss_background.bmp"); break;
 	}
+	Platform::txt = loadTexture("platform.bmp");
+	MovingPlatform::txt = loadTexture("movingPlatform.bmp");
+	BreakablePlatform::txt = loadTexture("breakablePlatform.bmp");
 	
 	srand(time(NULL));
 	goalDist = int(10000. * hole * sqrt(hole));
