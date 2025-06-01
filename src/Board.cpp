@@ -22,7 +22,7 @@ Board::~Board()
 void Board::init(int hole)
 {
 	this->hole = hole;
-	m_rect = { 1920 / 2 - 1000 / 2,1080 - 1080,1120,1080 };
+	m_rect = { 1920 / 2 - 1120 / 2,1080 - 1080,1120,1080 };
 	switch (hole) {
 		case 1: txt = loadTexture("dirt_background.bmp"); break;
 		case 2: txt = loadTexture("stone_background.bmp"); break;
@@ -35,7 +35,8 @@ void Board::init(int hole)
 	BreakablePlatform::txt = loadTexture("breakablePlatform.bmp");
 	
 	srand(time(NULL));
-	goalDist = int(1000. * hole * sqrt(hole));
+	goalDist = int(5000. * hole * sqrt(hole));
+	if (hole == 5) goalDist = 200000000;
 	dist = 0;
 	maxDist = 0;
 	platDist = (hole < 4? 100: 200);
@@ -44,6 +45,7 @@ void Board::init(int hole)
 	spawnPlatforms(-2500, 0);
 	platforms.emplace_back(make_unique<Platform>());
 	platforms.back()->init({ 1920 / 2 - 64 / 2, 1080 - 300 });
+	pb.init();
 }
 
 int Board::pickPlat() {
@@ -54,8 +56,7 @@ int Board::pickPlat() {
 		case 2:
 			if (r < 0.7) return 1; // Breakable 70%
 			return 0; // Platform 30%
-		case 3:
-		case 4:
+		default:
 			if (r < 0.6) return 2; // Moving 60%
 			if (r < 0.9) return 1; // Breakable 30%
 			return 0; // Platform 10%
@@ -96,6 +97,7 @@ void Board::update()
 	dist += tiger.vel;
 	spawnPlatforms(maxDist, dist);
 	maxDist = max(maxDist, dist);
+	pb.update();
 }
 int Board::placeInput()
 {
@@ -144,6 +146,7 @@ void Board::draw()
 		platform->draw();
 	}
 	tiger.draw();
+	pb.draw();
 }
 
 void Board::exit()
@@ -154,4 +157,5 @@ void Board::exit()
 	}
 	platforms.clear();
 	tiger.exit();
+	pb.exit();
 }

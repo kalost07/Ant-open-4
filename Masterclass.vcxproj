@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -161,6 +161,7 @@
     <ClCompile Include="src\MovingPlatform.cpp" />
     <ClCompile Include="src\Platform.cpp" />
     <ClCompile Include="src\Presenter.cpp" />
+    <ClCompile Include="src\progressBar.cpp" />
     <ClCompile Include="src\StartMenu.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
@@ -175,6 +176,7 @@
     <ClInclude Include="include\MovingPlatform.h" />
     <ClInclude Include="include\Platform.h" />
     <ClInclude Include="include\Presenter.h" />
+    <ClInclude Include="include\progressBar.h" />
     <ClInclude Include="include\StartMenu.h" />
     <ClInclude Include="include\World.h" />
   </ItemGroup>

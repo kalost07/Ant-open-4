@@ -27,6 +27,10 @@ void Game::update()
 	if (m_board.dist > m_board.goalDist) {
 		return;
 	}
+	if (m_board.dist + 5000 < m_board.maxDist) {
+		m_board.exit();
+		m_board.init(level);
+	}
 	m_board.update();
 	
 }
@@ -64,7 +68,7 @@ void Game::win_animation()
 	
 	tram.texture = m_tram;
 	drawObject(tram);
-	tram.drect.x += 45;
+	tram.drect.x += 15;
 	m_board.tiger.draw();
 
 	

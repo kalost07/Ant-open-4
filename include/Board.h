@@ -6,6 +6,7 @@
 #include "MovingPlatform.h"
 #include "Character.h"
 #include <list>
+#include "progressBar.h"
 
 class Board {
 public:
@@ -30,6 +31,7 @@ public:
 	std::list<unique_ptr<Platform>> platforms;
 	void spawnPlatforms(int, int);
 	Character tiger;
+	ProgressBar pb;
 
 	static SDL_Rect m_rect;
 	SDL_Texture* txt;
