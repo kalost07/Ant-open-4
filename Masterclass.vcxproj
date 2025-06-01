@@ -153,10 +153,13 @@
   <ItemGroup>
     <ClCompile Include="src\Anvil.cpp" />
     <ClCompile Include="src\Board.cpp" />
+    <ClCompile Include="src\BreakablePlatform.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MovingPlatform.cpp" />
+    <ClCompile Include="src\Platform.cpp" />
     <ClCompile Include="src\Presenter.cpp" />
     <ClCompile Include="src\Pul.cpp" />
     <ClCompile Include="src\StartMenu.cpp" />
@@ -165,10 +168,13 @@
   <ItemGroup>
     <ClInclude Include="include\Anvil.h" />
     <ClInclude Include="include\Board.h" />
+    <ClInclude Include="include\BreakablePlatform.h" />
     <ClInclude Include="include\defines.h" />
     <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\InputManager.h" />
+    <ClInclude Include="include\MovingPlatform.h" />
+    <ClInclude Include="include\Platform.h" />
     <ClInclude Include="include\Presenter.h" />
     <ClInclude Include="include\Pul.h" />
     <ClInclude Include="include\StartMenu.h" />
