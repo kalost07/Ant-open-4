@@ -8,15 +8,12 @@ public:
 	Game();
 	~Game();
 
-	void init(int);
+	void init();
 	void update();
 	void draw();
 	void exit();
 
 	Board m_board;
-	int botState;
 
 	SDL_Texture* m_bg;
-
-	bool turn;
 };

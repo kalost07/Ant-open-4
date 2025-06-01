@@ -7,12 +7,14 @@ public:
 	Board();
 	~Board();
 
-	void init();
+	void init(int);
 	void update();
 	void draw();
 	void exit();
 
 	int placeInput();
+
+	int hole;
 
 	SDL_Rect m_rect;
 	SDL_Texture* txt;

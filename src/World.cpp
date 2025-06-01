@@ -31,7 +31,7 @@ void World::run()
 			if (MouseIsInRect(m_inputManager.m_mouseCoor, menu.m_play_rect)) {
 				game_state = In_Game;
 				m_inputManager.handleInput();
-				m_game.init(0);
+				m_game.init();
 			}
 		}
 	}
@@ -49,7 +49,7 @@ void World::run()
 				game_state = In_Game;
 				m_inputManager.handleInput();
 				m_game.exit();
-				m_game.init(0);
+				m_game.init();
 			}
 		}
 	}
