@@ -23,12 +23,12 @@ void Character::update()
 {
 	if (Board::controlEnabled) {
 		if (startedJumping == true) {
-			if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_A] ||
-				world.m_inputManager.m_keyboardState[SDL_SCANCODE_LEFT]) {
+			if ((world.m_inputManager.m_keyboardState[SDL_SCANCODE_A] ||
+				world.m_inputManager.m_keyboardState[SDL_SCANCODE_LEFT] ) && pos.x>Board::m_rect.x) {
 				pos.x -= world.m_game.getSpeed();
 			}
-			if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_D] ||
-				world.m_inputManager.m_keyboardState[SDL_SCANCODE_RIGHT]) {
+			if ((world.m_inputManager.m_keyboardState[SDL_SCANCODE_D] ||
+				world.m_inputManager.m_keyboardState[SDL_SCANCODE_RIGHT]) && pos.x < Board::m_rect.x + Board::m_rect.w - pos.w) {
 				pos.x += world.m_game.getSpeed();
 			}
 		}
