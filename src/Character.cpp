@@ -12,7 +12,7 @@ Character::~Character()
 
 void Character::init()
 {
-	pos = { 1920 / 2 - 64 / 2, 1080 - 128 - 200, 64, 128 };
+	pos = { 1920 / 2 - 64 / 2, 1080 - 128 - 300, 64, 128 };
 	txt = loadTexture("placeholder");
 	vel = 0;
 	startedJumping = false;
@@ -31,10 +31,13 @@ void Character::update()
 				pos.x += world.m_game.getSpeed();
 			}
 		}
-		if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_SPACE]) {
-			startedJumping = true;
-			vel = 30;
+		else {
+			if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_SPACE]) {
+				startedJumping = true;
+				vel = 15;
+			}
 		}
+		
 	}
 	if (startedJumping == true) {
 		vel -= Board::GRAV;
