@@ -13,7 +13,7 @@ Game::~Game()
 
 void Game::init()
 {
-	m_board.init(0);
+	m_board.init(3);
 	m_bg = loadTexture("background.bmp");
 	speedLevel = 1;
 }
@@ -21,6 +21,7 @@ void Game::init()
 void Game::update()
 {
 	m_board.update();
+	
 }
 
 void Game::draw()

@@ -22,7 +22,14 @@ void Board::init(int hole)
 {
 	this->hole = hole;
 	m_rect = { 1920 / 2 - 1000 / 2,1080 - 1080,1120,1080 };
-	txt = loadTexture("dirt_background.bmp");
+	switch (hole) {
+		case 1: txt = loadTexture("dirt_background.bmp"); break;
+		case 2: txt = loadTexture("stone_background.bmp"); break;
+		case 3: txt = loadTexture("pre_hell_background.bmp"); break;
+		case 4: txt = loadTexture("hell_background.bmp"); break;
+		case 5: txt = loadTexture("abyss_background.bmp"); break;
+	}
+	
 	srand(time(NULL));
 	goalDist = int(10000. * hole * sqrt(hole));
 	dist = 0;
@@ -96,12 +103,14 @@ void Board::draw()
 	Drawable tmp;
 	tmp.drect = m_rect;
 	tmp.texture = txt;
+	/*
 	for (int y = m_rect.y; y < m_rect.y + m_rect.h; y += 96) {
 		for (int x = m_rect.x; x < m_rect.x + m_rect.w; x += 160) {
 			tmp.drect = { x, y, 160, 96 };
 			drawObject(tmp);
 		}
-	}
+	}*/
+	drawObject(tmp);
 	for (auto& platform : platforms) {
 		platform->draw();
 	}
