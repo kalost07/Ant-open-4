@@ -10,7 +10,7 @@ public:
     MovingPlatform();
     ~MovingPlatform();
 
-    void init() override; 
+    void init(int2) override; 
     void update() override;
 
     int speed = 2; 

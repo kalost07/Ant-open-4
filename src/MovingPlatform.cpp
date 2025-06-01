@@ -6,7 +6,7 @@ MovingPlatform::MovingPlatform() {}
 
 MovingPlatform::~MovingPlatform() {}
 
-void MovingPlatform::init() {
+void MovingPlatform::init(int2) {
     pos.w = 50;
     pos.h = 20;
     left = rand() % (Board::m_rect.w - (3 * pos.w)) + Board::m_rect.x;
