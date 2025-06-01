@@ -9,15 +9,15 @@ MovingPlatform::MovingPlatform() {}
 MovingPlatform::~MovingPlatform() {}
 
 void MovingPlatform::init(int2 p) {
-    pos.w = 50;
+    pos.w = 100;
     pos.h = 20;
-    left = rand() % (Board::m_rect.w - (3 * pos.w)) + Board::m_rect.x;
-    right = left + (rand() % (Board::m_rect.w - left));
-    while (right - left < pos.w * 3) {
-        left = rand() % (Board::m_rect.w - (3 * pos.w)) + Board::m_rect.x;
-        right = left + (rand() % (Board::m_rect.w - left));
+    left = rand() % (Board::m_rect.w - (pos.w*3)) + Board::m_rect.x;
+    right = (rand() % (Board::m_rect.w))+ Board::m_rect.x;
+    while (right - left < pos.w*3 ) {
+        left = rand() % (Board::m_rect.w - (pos.w)) + Board::m_rect.x;
+        right = rand() % (Board::m_rect.w)+Board::m_rect.x;
     }
-    pos.x = left;
+    pos.x = left+rand()%(right-left);
     pos.y = rand() % (Board::m_rect.h - pos.h) + Board::m_rect.y;
 }
 

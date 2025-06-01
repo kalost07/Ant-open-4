@@ -43,7 +43,7 @@ void Character::update()
 		vel -= Board::GRAV;
 		for (auto& platform : world.m_game.m_board.platforms) {
 			if (collRectRect(pos, platform->pos) && vel < 0) { // jump
-				vel = 20;
+				vel = 25;
 				if (auto* breakable = dynamic_cast<BreakablePlatform*>(platform.get())) {
 					breakable->breakPlatform();
 				}

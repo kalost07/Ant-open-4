@@ -14,7 +14,7 @@ Platform::~Platform()
 
 void Platform::init(int2 p)
 {
-	pos = { p.x, p.y, 50, 20 };
+	pos = { p.x, p.y, 100, 20 };
 }
 
 void Platform::baseUpdate() {
