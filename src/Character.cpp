@@ -67,7 +67,7 @@ void Character::draw()
 	tmp.drect = pos;
 	tmp.texture = txt;
 	tmp.srect = { 0, 0, 40, 62 };
-	if (jumpFrame > 0) tmp.srect.x = 40;
+	if (jumpFrame > 0 || vel<0) tmp.srect.x = 40;
 	drawObject(tmp);
 	SDL_SetRenderDrawColor(Presenter::m_main_renderer, 255, 0, 0, 1);
 	SDL_RenderDrawRect(Presenter::m_main_renderer, &pos);
