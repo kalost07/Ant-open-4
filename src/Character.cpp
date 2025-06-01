@@ -13,7 +13,7 @@ Character::~Character()
 void Character::init()
 {
 	pos = { 1920 / 2 - 64 / 2, 1080 - 128 - 300, 64, 128 };
-	txt = loadTexture("placeholder");
+	txt = loadTexture("tiger.bmp");
 	vel = 0;
 	startedJumping = false;
 }
