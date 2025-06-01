@@ -18,7 +18,7 @@ Board::~Board()
 void Board::init(int hole)
 {
 	this->hole = hole;
-	m_rect = { 1920 / 2 - 700 / 2,1080 - 600,700,600 };
+	m_rect = { 1920 / 2 - 1000 / 2,1080 - 1080,1000,1080 };
 	txt = loadTexture("grid.bmp");
 	srand(time(NULL));
 }
