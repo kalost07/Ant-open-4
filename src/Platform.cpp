@@ -1,4 +1,5 @@
 #include "Platform.h"
+#include "Presenter.h"
 
 Platform::Platform()
 {
@@ -18,7 +19,10 @@ void Platform::update()
 
 void Platform::draw()
 {
-	
+	Drawable tmp;
+	tmp.drect = pos;
+	tmp.texture = txt;
+	drawObject(tmp);
 }
 
 void Platform::exit()

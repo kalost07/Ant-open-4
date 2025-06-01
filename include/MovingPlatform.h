@@ -5,12 +5,19 @@
 
 static SDL_Texture* model = loadTexture("MovingPlatform.bmp");
 
-class MovingPlatform : Platform {
+class MovingPlatform : public Platform { 
 public:
-	MovingPlatform();
-	~MovingPlatform();
+    MovingPlatform();
+    ~MovingPlatform();
 
-	int speed = 0;
-	SDL_Texture* txt;
+    void init() override; 
+    void update() override;
 
+    int speed = 2; 
+    int dir = 1;
+    int left;
+    int right;
+
+private:
+    void move();
 };

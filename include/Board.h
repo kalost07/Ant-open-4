@@ -16,7 +16,7 @@ public:
 
 	int hole;
 
-	SDL_Rect m_rect;
+	static SDL_Rect m_rect;
 	SDL_Texture* txt;
 
 	int endState;
