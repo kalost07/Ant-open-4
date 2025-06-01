@@ -14,4 +14,5 @@ public:
 	SDL_Texture* txt;
 
 	void breakPlatform();
+	virtual void init();
 };

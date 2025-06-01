@@ -23,8 +23,8 @@ public:
 
 	std::list<Platform> platforms;
 	Character tiger;
-	
-	SDL_Rect m_rect;
+
+	static SDL_Rect m_rect;
 	SDL_Texture* txt;
 
 	static bool controlEnabled;

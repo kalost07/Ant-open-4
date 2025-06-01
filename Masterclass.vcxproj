@@ -159,6 +159,7 @@
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MovingPlatform.cpp" />
+    <ClCompile Include="src\NormalPlatform.cpp" />
     <ClCompile Include="src\Platform.cpp" />
     <ClCompile Include="src\Presenter.cpp" />
     <ClCompile Include="src\StartMenu.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\InputManager.h" />
     <ClInclude Include="include\MovingPlatform.h" />
+    <ClInclude Include="include\NormalPlatform.h" />
     <ClInclude Include="include\Platform.h" />
     <ClInclude Include="include\Presenter.h" />
     <ClInclude Include="include\StartMenu.h" />

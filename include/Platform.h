@@ -8,10 +8,12 @@ public:
 	~Platform();
 
 	SDL_Rect pos;
+	SDL_Texture* txt;
 
-	void init(int2);
-	void update();
-	void draw();
-	void exit();
+
+	virtual void init();
+	virtual void update();
+	virtual void draw();
+	virtual void exit();
 
 };
