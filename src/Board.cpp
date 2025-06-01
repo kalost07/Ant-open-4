@@ -4,6 +4,7 @@
 #include "World.h"
 
 extern World world;
+bool Board::controlEnabled = true;
 
 Board::Board()
 {
@@ -21,11 +22,22 @@ void Board::init(int hole)
 	m_rect = { 1920 / 2 - 1000 / 2,1080 - 1080,1000,1080 };
 	txt = loadTexture("grid.bmp");
 	srand(time(NULL));
+	maxDist = int(10000. * hole * sqrt(hole));
+	dist = 0;
+	controlEnabled = true;
+	tiger.init();
+	platforms.emplace_back();
+	for (auto platform : platforms) {
+		platform.init({1000,500});
+	}
 }
 
 void Board::update()
 {
-
+	for (auto platform : platforms) {
+		platform.update();
+	}
+	tiger.update();
 }
 int Board::placeInput()
 {
@@ -63,9 +75,16 @@ void Board::draw()
 	tmp.drect = m_rect;
 	tmp.texture = txt;
 	drawObject(tmp);
+	for (auto platform : platforms) {
+		platform.draw();
+	}
+	tiger.draw();
 }
 
 void Board::exit()
 {
-
+	for (auto platform : platforms) {
+		platform.exit();
+	}
+	tiger.exit();
 }

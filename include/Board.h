@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Engine.h"
+#include "Platform.h"
+#include "Character.h"
+#include <list>
 
 class Board {
 public:
@@ -15,9 +18,16 @@ public:
 	int placeInput();
 
 	int hole;
+	int maxDist;
+	int dist;
 
+	std::list<Platform> platforms;
+	Character tiger;
+	
 	SDL_Rect m_rect;
 	SDL_Texture* txt;
 
+	static bool controlEnabled;
 	int endState;
 };
+
