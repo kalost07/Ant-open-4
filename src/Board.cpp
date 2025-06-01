@@ -32,9 +32,6 @@ void Board::init(int hole)
 	spawnPlatforms(-2500, 0);
 	platforms.emplace_back(make_unique<Platform>());
 	platforms.back()->init({ 1920 / 2 - 64 / 2, 1080 - 300 });
-	for (auto& platform : platforms) {
-		platform->init({1000,500});
-	}
 }
 void Board::spawnPlatforms(int start, int end) {
 	for (int i = start - start % 100 + 100; i < end; i += 100) {
@@ -63,8 +60,6 @@ void Board::update()
 	dist += tiger.vel;
 	spawnPlatforms(maxDist, dist);
 	maxDist = max(maxDist, dist);
-	// move bg
-	txt_pos = { 0,int(dist * 0.5) % TXT_HEIGHT,160,TXT_HEIGHT };
 }
 int Board::placeInput()
 {
@@ -101,7 +96,6 @@ void Board::draw()
 	Drawable tmp;
 	tmp.drect = m_rect;
 	tmp.texture = txt;
-	tmp.srect = txt_pos;
 	for (int y = m_rect.y; y < m_rect.y + m_rect.h; y += 96) {
 		for (int x = m_rect.x; x < m_rect.x + m_rect.w; x += 160) {
 			tmp.drect = { x, y, 160, 96 };
