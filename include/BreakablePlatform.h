@@ -3,7 +3,7 @@
 #include "Platform.h"
 #include "Presenter.h"
 
-class BreakablePlatform : Platform {
+class BreakablePlatform : public Platform {
 public:
 	BreakablePlatform();
 	~BreakablePlatform();

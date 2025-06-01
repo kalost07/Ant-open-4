@@ -2,7 +2,6 @@
 
 #include "Engine.h"
 #include "Platform.h"
-#include "NormalPlatform.h"
 #include "BreakablePlatform.h"
 #include "MovingPlatform.h"
 #include "Character.h"
@@ -24,12 +23,13 @@ public:
 	int maxDist;
 	int dist;
 
-	std::list<Platform*> platforms;
+	std::list<unique_ptr<Platform>> platforms;
 	Character tiger;
 
 	static SDL_Rect m_rect;
 	SDL_Texture* txt;
 
+	const int PLATFORM_DESPAWN = 1500;
 	static bool controlEnabled;
 	int endState;
 };
