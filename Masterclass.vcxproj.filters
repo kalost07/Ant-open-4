@@ -34,20 +34,7 @@
     <ClCompile Include="src\StartMenu.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Pul.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Board.cpp" />
-    <ClCompile Include="src\Anvil.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BreakablePlatform.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MovingPlatform.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platform.cpp">
+    <ClCompile Include="src\Board.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -73,20 +60,7 @@
     <ClInclude Include="include\StartMenu.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\Pul.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Board.h" />
-    <ClInclude Include="include\Anvil.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\BreakablePlatform.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\MovingPlatform.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Platform.h">
+    <ClInclude Include="include\Board.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

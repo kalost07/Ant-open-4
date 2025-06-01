@@ -12,16 +12,6 @@ void Menu::init_play()
 	m_play_rect = { 105,500,400,200 };
 	m_play_texture = loadTexture("play.bmp");
 }
-void Menu::init_playBotE()
-{
-	m_playBotE_rect = { 1415,500,400,200 };
-	m_playBotE_texture = loadTexture("playBotE.bmp");
-}
-void Menu::init_playBotH()
-{
-	m_playBotH_rect = { 1415,800,400,200 };
-	m_playBotH_texture = loadTexture("playBotH.bmp");
-}
 
 void Menu::init_title()
 {
@@ -57,16 +47,12 @@ void Menu::init_all_start()
 	init_quit();
 	init_title();
 	init_play();
-	init_playBotE();
-	init_playBotH();
 }
 
 void Menu::init_win_scr(int player)
 {
 	init_quit();
 	init_play();
-	init_playBotE();
-	init_playBotH();
 	init_win(player);
 }
 
@@ -85,24 +71,6 @@ void Menu::draw_play()
 	Drawable tmp;
 	tmp.texture = m_play_texture;
 	tmp.drect = m_play_rect;
-
-	tmp.srect = { 0,0,m_play_rect.w,m_play_rect.h };
-	drawObject(tmp);
-}
-void Menu::draw_playBotE()
-{
-	Drawable tmp;
-	tmp.texture = m_playBotE_texture;
-	tmp.drect = m_playBotE_rect;
-
-	tmp.srect = { 0,0,m_play_rect.w,m_play_rect.h };
-	drawObject(tmp);
-}
-void Menu::draw_playBotH()
-{
-	Drawable tmp;
-	tmp.texture = m_playBotH_texture;
-	tmp.drect = m_playBotH_rect;
 
 	tmp.srect = { 0,0,m_play_rect.w,m_play_rect.h };
 	drawObject(tmp);
@@ -141,8 +109,6 @@ void Menu::draw_all_start()
 	draw_background_start();
 	draw_quit();
 	draw_play();
-	draw_playBotE();
-	draw_playBotH();
 	draw_title();
 }
 
@@ -150,7 +116,5 @@ void Menu::draw_win_scr()
 {
 	draw_quit();
 	draw_play();
-	draw_playBotE();
-	draw_playBotH();
 	draw_win();
 }
