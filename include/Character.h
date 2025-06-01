@@ -12,7 +12,11 @@ public:
 	void draw();
 	void exit();
 
+	double vel;
+
 	SDL_Rect pos;
 	SDL_Texture* txt;
+
+	bool startedJumping;
 };
 

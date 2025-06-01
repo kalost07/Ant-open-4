@@ -22,6 +22,7 @@ void MovingPlatform::init(int2 p) {
 }
 
 void MovingPlatform::update() {
+    baseUpdate();
     move();
 }
 

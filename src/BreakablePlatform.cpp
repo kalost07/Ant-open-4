@@ -19,3 +19,7 @@ void BreakablePlatform::breakPlatform()
 void BreakablePlatform::init(int2 p) {
 
 }
+
+void BreakablePlatform::update() {
+	baseUpdate();
+}

@@ -1,5 +1,6 @@
 #include "Platform.h"
 #include "World.h"
+extern World world;
 
 SDL_Texture* Platform::txt;
 
@@ -16,8 +17,14 @@ void Platform::init(int2 p)
 	pos = { p.x, p.y, 100, 50 };
 }
 
+void Platform::baseUpdate() {
+	// move from char
+	pos.y += world.m_game.m_board.tiger.vel;
+}
+
 void Platform::update()
 {
+	baseUpdate();
 }
 
 void Platform::draw()

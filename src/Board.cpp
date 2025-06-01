@@ -5,6 +5,7 @@
 
 extern World world;
 bool Board::controlEnabled = true;
+const double Board::GRAV = 1;
 SDL_Rect Board::m_rect;
 
 Board::Board()

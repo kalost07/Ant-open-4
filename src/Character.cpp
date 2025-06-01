@@ -14,18 +14,37 @@ void Character::init()
 {
 	pos = { 1920 / 2 - 64 / 2, 1080 - 128 - 200, 64, 128 };
 	txt = loadTexture("placeholder");
+	vel = 0;
+	startedJumping = false;
 }
 
 void Character::update()
 {
 	if (Board::controlEnabled) {
-		if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_A] ||
-			world.m_inputManager.m_keyboardState[SDL_SCANCODE_LEFT]) {
-			pos.x -= world.m_game.getSpeed();
+		if (startedJumping == true) {
+			if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_A] ||
+				world.m_inputManager.m_keyboardState[SDL_SCANCODE_LEFT]) {
+				pos.x -= world.m_game.getSpeed();
+			}
+			if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_D] ||
+				world.m_inputManager.m_keyboardState[SDL_SCANCODE_RIGHT]) {
+				pos.x += world.m_game.getSpeed();
+			}
 		}
-		if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_D] ||
-			world.m_inputManager.m_keyboardState[SDL_SCANCODE_RIGHT]) {
-			pos.x += world.m_game.getSpeed();
+		if (world.m_inputManager.m_keyboardState[SDL_SCANCODE_SPACE]) {
+			startedJumping = true;
+			vel = 30;
+		}
+	}
+	if (startedJumping == true) {
+		vel -= Board::GRAV;
+		for (auto& platform : world.m_game.m_board.platforms) {
+			if (collRectRect(pos, platform->pos) && vel < 0) { // jump
+				vel = 20;
+				if (auto* breakable = dynamic_cast<BreakablePlatform*>(platform.get())) {
+					breakable->breakPlatform();
+				}
+			}
 		}
 	}
 }

@@ -30,6 +30,7 @@ public:
 	SDL_Texture* txt;
 
 	const int PLATFORM_DESPAWN = 1500;
+	static const double GRAV; // pixel/frame^2
 	static bool controlEnabled;
 	int endState;
 };

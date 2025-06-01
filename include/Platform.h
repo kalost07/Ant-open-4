@@ -10,6 +10,7 @@ public:
 	static SDL_Texture* txt;
 
 	virtual void init(int2);
+	void baseUpdate();
 	virtual void update();
 	virtual void draw();
 	virtual void exit();
