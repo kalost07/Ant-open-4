@@ -15,7 +15,7 @@ void Menu::init_play()
 
 void Menu::init_title()
 {
-	m_title_rect = { (1920 - 1000) / 2,100,1000,500 };
+	m_title_rect = { 0,0,1920,1080 };
 	m_title_texture = loadTexture("title.bmp");
 }
 
@@ -106,10 +106,11 @@ void Menu::draw_win()
 
 void Menu::draw_all_start()
 {
+	draw_title();
 	draw_background_start();
 	draw_quit();
 	draw_play();
-	draw_title();
+	
 }
 
 void Menu::draw_win_scr()

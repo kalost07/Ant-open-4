@@ -14,6 +14,7 @@ public:
 	void win_animation();
 	void exit();
 
+	bool hit = false;
 	int level;
 	int game_state;
 

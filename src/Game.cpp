@@ -63,12 +63,18 @@ void Game::win_animation()
 		m_board.exit();
 		level++;
 		m_board.init(level);
+		hit = false;
 	}
 	drawObject(tmp);
 	
 	tram.texture = m_tram;
 	drawObject(tram);
 	tram.drect.x += 15;
+	
+	if (collRectRect(m_board.tiger.pos, tram.drect)) {
+		hit = true;
+	}
+	m_board.tiger.pos.y += 50 * hit;
 	m_board.tiger.draw();
 
 	
