@@ -38,7 +38,7 @@ void Board::init(int hole)
 	goalDist = int(1000. * hole * sqrt(hole));
 	dist = 0;
 	maxDist = 0;
-	platDist = (hole < 3? 100: 200);
+	platDist = (hole < 4? 100: 200);
 	controlEnabled = true;
 	tiger.init();
 	spawnPlatforms(-2500, 0);
