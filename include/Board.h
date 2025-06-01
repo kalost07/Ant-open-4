@@ -23,6 +23,9 @@ public:
 	int goalDist;
 	int dist;
 	int maxDist;
+	int platDist;
+
+	int pickPlat();
 
 	std::list<unique_ptr<Platform>> platforms;
 	void spawnPlatforms(int, int);

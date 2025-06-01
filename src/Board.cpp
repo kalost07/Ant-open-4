@@ -3,6 +3,7 @@
 #include "InputManager.h"
 #include "World.h"
 
+
 extern World world;
 bool Board::controlEnabled = true;
 const double Board::GRAV = 0.75;
@@ -37,15 +38,33 @@ void Board::init(int hole)
 	goalDist = int(10000. * hole * sqrt(hole));
 	dist = 0;
 	maxDist = 0;
+	platDist = (hole < 3? 100: 200);
 	controlEnabled = true;
 	tiger.init();
 	spawnPlatforms(-2500, 0);
 	platforms.emplace_back(make_unique<Platform>());
 	platforms.back()->init({ 1920 / 2 - 64 / 2, 1080 - 300 });
 }
+
+int Board::pickPlat() {
+	double r = rand01(); // r is between 0.0 and 1.0
+	switch (hole) {
+		case 1:
+			return 0; // Platform 100%
+		case 2:
+			if (r < 0.7) return 1; // Breakable 70%
+			return 0; // Platform 30%
+		case 3:
+		case 4:
+			if (r < 0.6) return 2; // Moving 60%
+			if (r < 0.9) return 1; // Breakable 30%
+			return 0; // Platform 10%
+	}
+}
+
 void Board::spawnPlatforms(int start, int end) {
-	for (int i = start - start % 100 + 100; i < end; i += 100) {
-		switch (rand() % 3) {
+	for (int i = start - start % platDist + platDist; i < end; i += platDist) {
+		switch (pickPlat()) {
 		case 0: platforms.emplace_back(make_unique<Platform>()); break;
 		case 1: platforms.emplace_back(make_unique<BreakablePlatform>()); break;
 		case 2: platforms.emplace_back(make_unique<MovingPlatform>()); break;
@@ -61,6 +80,13 @@ void Board::update()
 			(*it)->exit();
 			it = platforms.erase(it);
 			continue;
+		}
+		if (auto* breakable = dynamic_cast<BreakablePlatform*>((*it).get())) {
+			if (breakable->active == false) {
+				(*it)->exit();
+				it = platforms.erase(it);
+				continue;
+			}
 		}
 		(*it)->update();
 		it++;

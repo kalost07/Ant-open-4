@@ -18,6 +18,5 @@ public:
 	SDL_Texture* txt;
 
 	bool startedJumping;
-	int jumpFrame;
 };
 
