@@ -43,7 +43,7 @@ void Board::spawnPlatforms(int start, int end) {
 		case 1: platforms.emplace_back(make_unique<BreakablePlatform>()); break;
 		case 2: platforms.emplace_back(make_unique<MovingPlatform>()); break;
 		}
-		platforms.back()->init({ rand() % (m_rect.w - 50) + m_rect.x, 1080 - 300 + (dist - i) - 1500 });
+		platforms.back()->init({ rand() % (m_rect.w - 100) + m_rect.x, 1080 - 300 + (dist - i) - 1500 });
 		cout << "spawn for dist " << i << " at " << (1080 - 300 + (dist - i) - 1500) << endl;
 	}
 }
