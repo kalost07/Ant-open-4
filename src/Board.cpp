@@ -49,17 +49,14 @@ void Board::spawnPlatforms(int start, int end) {
 }
 void Board::update()
 {
-	for (auto& platform : platforms) {
-		if (platform->pos.y >= PLATFORM_DESPAWN) {
-			platform->exit();
-			switch (rand() % 3) {
-				case 0: platform = make_unique<Platform>(); break;
-				case 1: platform = make_unique<BreakablePlatform>(); break;
-				case 2: platform = make_unique<MovingPlatform>(); break;
-			}
-			platform->init({1000,500});
+	for (auto it = platforms.begin(); it != platforms.end();) {
+		if ((*it)->pos.y >= PLATFORM_DESPAWN) {
+			(*it)->exit();
+			it = platforms.erase(it);
+			continue;
 		}
-		platform->update();
+		(*it)->update();
+		it++;
 	}
 	tiger.update();
 	// update dist and spawn platforms
