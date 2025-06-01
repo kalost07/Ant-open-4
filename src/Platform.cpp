@@ -33,8 +33,10 @@ void Platform::draw()
 	tmp.drect = pos;
 	tmp.texture = getTxt();
 	drawObject(tmp);
+	/*
 	SDL_SetRenderDrawColor(Presenter::m_main_renderer, 255, 0, 0, 1);
-	SDL_RenderDrawRect(Presenter::m_main_renderer, &pos);
+	SDL_RenderDrawRect(Presenter::m_main_renderer, &pos);]
+	*/
 }
 
 void Platform::exit()
