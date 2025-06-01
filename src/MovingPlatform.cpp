@@ -2,11 +2,13 @@
 #include "MovingPlatform.h"
 #include "Board.h"
 
+SDL_Texture* MovingPlatform::txt = loadTexture("MovingPlatform.bmp");
+
 MovingPlatform::MovingPlatform() {}
 
 MovingPlatform::~MovingPlatform() {}
 
-void MovingPlatform::init(int2) {
+void MovingPlatform::init(int2 p) {
     pos.w = 50;
     pos.h = 20;
     left = rand() % (Board::m_rect.w - (3 * pos.w)) + Board::m_rect.x;
@@ -17,7 +19,6 @@ void MovingPlatform::init(int2) {
     }
     pos.x = left;
     pos.y = rand() % (Board::m_rect.h - pos.h) + Board::m_rect.y;
-    txt = model;
 }
 
 void MovingPlatform::update() {

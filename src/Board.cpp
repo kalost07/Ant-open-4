@@ -5,6 +5,7 @@
 
 extern World world;
 bool Board::controlEnabled = true;
+SDL_Rect Board::m_rect;
 
 Board::Board()
 {
@@ -26,16 +27,16 @@ void Board::init(int hole)
 	dist = 0;
 	controlEnabled = true;
 	tiger.init();
-	platforms.emplace_back();
+	platforms.push_back(new Platform());
 	for (auto platform : platforms) {
-		platform.init({1000,500});
+		platform->init({1000,500});
 	}
 }
 
 void Board::update()
 {
 	for (auto platform : platforms) {
-		platform.update();
+		platform->update();
 	}
 	tiger.update();
 }
@@ -76,7 +77,7 @@ void Board::draw()
 	tmp.texture = txt;
 	drawObject(tmp);
 	for (auto platform : platforms) {
-		platform.draw();
+		platform->draw();
 	}
 	tiger.draw();
 }
@@ -84,7 +85,7 @@ void Board::draw()
 void Board::exit()
 {
 	for (auto platform : platforms) {
-		platform.exit();
+		platform->exit();
 	}
 	tiger.exit();
 }

@@ -2,6 +2,9 @@
 
 #include "Engine.h"
 #include "Platform.h"
+#include "NormalPlatform.h"
+#include "BreakablePlatform.h"
+#include "MovingPlatform.h"
 #include "Character.h"
 #include <list>
 
@@ -21,7 +24,7 @@ public:
 	int maxDist;
 	int dist;
 
-	std::list<Platform> platforms;
+	std::list<Platform*> platforms;
 	Character tiger;
 
 	static SDL_Rect m_rect;

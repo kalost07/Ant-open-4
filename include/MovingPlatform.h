@@ -3,7 +3,7 @@
 #include "Platform.h"
 #include "Presenter.h"
 
-static SDL_Texture* model = loadTexture("MovingPlatform.bmp");
+// static SDL_Texture* model = loadTexture("MovingPlatform.bmp");
 
 class MovingPlatform : public Platform { 
 public:
@@ -18,6 +18,13 @@ public:
     int left;
     int right;
 
+    static SDL_Texture* txt;
+
+    SDL_Texture* getTxt() {
+        return txt;
+    }
+
 private:
     void move();
 };
+
